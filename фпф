@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main(){
+int n, i, m;
+printf("Введите кол-во чисел массива: \n");
+scanf("%i", &n);
+int A[n + 1];
+printf("Введите числа массива: \n");
+for (i = 0; i < n; i++){
+    scanf("%i", &A[i]);
+}
+int max, imax, min, imin, temp;
+max = A[0];
+imax = 0;
+min = A[0];
+imin = 0;
+for (i = 1; i < n; i++){
+    if (A[i] > max) {
+        max = A[i];
+        imax = i;
+    }
+    if (A[i] < min){
+        min = A[i];
+        imin = i;
+    }
+}
+int k = imax + 1;
+for (i = 0; i < n;i++){
+    for (i = n;i > k;i--){
+    A[i] = A[i - 1];
+    }
+    A[k] = min;
+    printf("new massiv: ");
+    for (i = 0;i < n + 1; i++){
+        printf("%i ", A[i]);
+    }
+
+}
+}
